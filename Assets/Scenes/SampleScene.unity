@@ -132,8 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 94952004}
-  - component: {fileID: 94952003}
   - component: {fileID: 94952002}
+  - component: {fileID: 94952003}
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 94952001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1fd7280732afc44cb0929902072d51d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d0795d570b52cb4a9cde7c8dd35afe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &94952003
@@ -805,10 +805,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1477067002}
+  - component: {fileID: 1477066998}
   - component: {fileID: 1477067001}
   - component: {fileID: 1477067000}
   - component: {fileID: 1477066999}
-  - component: {fileID: 1477066998}
   m_Layer: 0
   m_Name: Switcher
   m_TagString: Untagged
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477066997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a06d4ec1baa4064c873ecb3bb79416a, type: 3}
+  m_Script: {fileID: 11500000, guid: 78532da924fc04a4e8db5ee53b3f750f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1477066999
@@ -1103,10 +1103,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1965814318}
+  - component: {fileID: 1965814314}
   - component: {fileID: 1965814317}
   - component: {fileID: 1965814316}
   - component: {fileID: 1965814315}
-  - component: {fileID: 1965814314}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1123,9 +1123,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965814313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31bbf705688601a4aa17e25ba6736390, type: 3}
+  m_Script: {fileID: 11500000, guid: b34f5d1fb5177884fa4c49303741b7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _switcher: {fileID: 1477066998}
 --- !u!65 &1965814315
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1307,11 +1308,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144561904}
+  - component: {fileID: 2144561905}
   - component: {fileID: 2144561903}
   - component: {fileID: 2144561902}
   - component: {fileID: 2144561901}
   - component: {fileID: 2144561900}
-  - component: {fileID: 2144561905}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1422,7 +1423,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2144561899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9c1d0fee2912f47aae2e85b8d5b8ec, type: 3}
+  m_Script: {fileID: 11500000, guid: b68bb81b83c23564f8c3251959241fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
@@ -1452,7 +1453,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145959891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec2fc4cc842a8f4084666f4119ec7fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9456891d080aa1f4ebcd4635320e1e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2145959893
