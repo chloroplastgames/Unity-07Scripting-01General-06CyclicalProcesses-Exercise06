@@ -3,16 +3,48 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+
+    #region Fields/Properties
+
+    /// <summary>
+    /// Is the game over?
+    /// </summary>
     public bool IsGameOver { get; private set; }
+
+    private EndPoint _endPoint;
+
+    #endregion
+
+
+    #region Lifecycle
+
+    private void Awake()
+    {
+        // We can do this because there is only one EndPoint object per scene!
+        _endPoint = FindObjectOfType<EndPoint>();
+    }
 
     private void OnEnable()
     {
-        EndPoint.EndPointChange += GameOver;
+        _endPoint.OnReachedEvent.AddListener(OnEndPointReached);
     }
 
     private void OnDisable()
     {
-        EndPoint.EndPointChange -= GameOver;
+        _endPoint.OnReachedEvent.RemoveListener(OnEndPointReached);
+    }
+
+    #endregion
+
+
+    #region Own methods
+
+    private void OnEndPointReached()
+    {
+        if (!IsGameOver)
+        {
+            GameOver();
+        }
     }
 
     private void GameOver()
@@ -20,4 +52,7 @@ public class GameController : MonoBehaviour
         IsGameOver = true;
         SceneManager.LoadScene("GameOver");
     }
+
+    #endregion
+
 }

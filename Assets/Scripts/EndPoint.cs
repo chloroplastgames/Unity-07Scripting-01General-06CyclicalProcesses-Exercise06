@@ -1,32 +1,43 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class EndPoint : MonoBehaviour
 {
-    public bool IsEnter { get; private set; }
 
-    public delegate void EndPointHandler();
+    #region Fields/Properties
 
-    public static event EndPointHandler EndPointChange;
+    /// <summary>
+    /// "Reached" event.
+    /// </summary>
+    public UnityEvent OnReachedEvent { get; private set; } = new UnityEvent();
 
-    private void Start()
+    #endregion
+
+
+    #region Lifecycle
+
+    /* DUDA: Los OnEnable no van después de todos los Awakes!!!¿?¿?¿? - Parece que no.
+    private void Awake()
     {
-        IsEnter = false;
+        OnReachedEvent = new UnityEvent();
     }
+    */
 
     private void OnTriggerEnter()
     {
-        if (!IsEnter)
-        {
-            IsEnter = true;
-            OnEndPointChange();
-        }
+        OnReached();
     }
 
-    private void OnEndPointChange()
+    #endregion
+
+
+    #region Own methods
+
+    private void OnReached()
     {
-        if (EndPointChange != null)
-        {
-            EndPointChange.Invoke();
-        }
+        OnReachedEvent?.Invoke();
     }
+
+    #endregion
+
 }

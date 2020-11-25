@@ -2,10 +2,19 @@
 
 public class Player : MonoBehaviour
 {
+
+    #region Fields/Properties
+
     [SerializeField]
+    [Tooltip("Speed of the player (in units).")]
     private float _speed = 10;
 
     private Rigidbody _myRigidBody;
+
+    #endregion
+
+
+    #region Lifecycle
 
     private void Awake()
     {
@@ -22,4 +31,7 @@ public class Player : MonoBehaviour
             _myRigidBody.AddForce(new Vector3(horizontal, 0, vertical) * _speed);
         }
     }
+
+    #endregion
+
 }

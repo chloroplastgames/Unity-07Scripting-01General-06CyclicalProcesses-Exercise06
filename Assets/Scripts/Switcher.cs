@@ -1,33 +1,62 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Switcher : MonoBehaviour
 {
-    public bool IsSwitched { get; private set; }
 
-    public delegate void SwitchedHandler();
+    #region Fields/Properties
 
-    public event SwitchedHandler SwitchChange;
+    /// <summary>
+    /// "Pressed" event.
+    /// </summary>
+    public UnityEvent OnPressedEvent { get; private set; } = new UnityEvent();
+
+    private bool _isPressed;
+
+    #endregion
+
+
+    #region Lifecycle
+
+    /* DUDA: Los OnEnable no van después de todos los Awakes!!!¿?¿?¿? - Parece que no.
+    private void Awake()
+    {
+Debug.Log("--------- Switcher Awake!!!");
+        OnPressedEvent = new UnityEvent();
+Debug.Log("--------- OnPressedEvent = [" + OnPressedEvent + "]");
+    }
+    */
 
     private void Start()
     {
-        IsSwitched = false;
+        _isPressed = false;
     }
 
     private void OnTriggerEnter()
     {
-        if (!IsSwitched)
+        if (!_isPressed)
         {
-            IsSwitched = true;
-
-            OnSwitchChange();
+            Press();
         }
     }
 
-    private void OnSwitchChange()
+    #endregion
+
+
+    #region Own methods
+
+    private void Press()
     {
-        if (SwitchChange != null)
-        {
-            SwitchChange.Invoke();
-        }
+        _isPressed = true;
+        OnPressed();
+        transform.position += Vector3.down * 0.25f;
     }
+
+    private void OnPressed()
+    {
+        OnPressedEvent?.Invoke();
+    }
+
+    #endregion
+
 }
