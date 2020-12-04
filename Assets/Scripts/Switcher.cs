@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Switcher : MonoBehaviour
 {
-    public bool IsSwitched { get; private set; }
+    public bool IsSwitched { get; private set; } 
 
-    public delegate void SwitchedHandler();
-
-    public event SwitchedHandler SwitchChange;
+    public UnityEvent SwitchChange;
 
     private void Start()
     {

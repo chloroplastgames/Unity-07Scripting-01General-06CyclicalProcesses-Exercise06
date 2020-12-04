@@ -12,12 +12,12 @@ public class Door : MonoBehaviour
 
     private void OnEnable()
     {
-        _switcher.SwitchChange += OpenDoor;
+        _switcher.SwitchChange.AddListener(OpenDoor);
     }
 
     private void OnDisable()
     {
-        _switcher.SwitchChange -= OpenDoor;
+        _switcher.SwitchChange.RemoveListener(OpenDoor);
     }
 
     private void OpenDoor()

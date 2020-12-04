@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class EndPoint : MonoBehaviour
 {
-    public bool IsEnter { get; private set; }
+    public bool IsEnter { get; private set; } 
 
-    public delegate void EndPointHandler();
-
-    public static event EndPointHandler EndPointChange;
+    public UnityEvent EndPointChange;
 
     private void Start()
     {

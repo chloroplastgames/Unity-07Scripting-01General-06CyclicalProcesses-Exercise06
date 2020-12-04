@@ -5,14 +5,21 @@ public class GameController : MonoBehaviour
 {
     public bool IsGameOver { get; private set; }
 
+    public EndPoint endPoint;
+
+    private void Awake()
+    {
+        endPoint = GameObject.FindObjectOfType<EndPoint>();
+    }
+
     private void OnEnable()
     {
-        EndPoint.EndPointChange += GameOver;
+        endPoint.EndPointChange.AddListener(GameOver);
     }
 
     private void OnDisable()
     {
-        EndPoint.EndPointChange -= GameOver;
+        endPoint.EndPointChange.RemoveListener(GameOver);
     }
 
     private void GameOver()
